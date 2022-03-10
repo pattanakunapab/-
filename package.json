@@ -1,0 +1,9 @@
+{
+  "name": "js",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@line/liff": "2.6.0",
+    "jquery": "3.6.0"
+  }
+}
