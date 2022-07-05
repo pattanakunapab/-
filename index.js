@@ -38,10 +38,10 @@ function runApp() {
 
     e.preventDefault();
     // เช็คการอัพโหลดว่ามีไฟล์ที่อัพไปหรือไม่;
-    var lengthpic = form.files1.files.length; // ช่วงไฟล์
-    if (lengthpic < 1) {
-      console.log('ไม่มีรูป');
-    }
+    // var lengthpic = form.files1.files.length; // ช่วงไฟล์
+    // if (lengthpic < 1) {
+    //   console.log('ไม่มีรูป');
+    // }
 
     // ถ้าอัพไฟล์เปิดกลุ่มนี้;
     // var size = form.files1.files[0].size;
