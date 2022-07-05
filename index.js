@@ -44,33 +44,34 @@ function runApp() {
     }
 
     // ถ้าอัพไฟล์เปิดกลุ่มนี้;
-    var size = form.files1.files[0].size;
-    if (size > 2097152) {
-      return Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'ภาพขนาดเกินกว่า 4 Mb',
-        showConfirmButton: true,
-        timer: 3000,
-      });
-    }
+    // var size = form.files1.files[0].size;
+    // if (size > 2097152) {
+    //   return Swal.fire({
+    //     position: 'center',
+    //     icon: 'error',
+    //     title: 'ภาพขนาดเกินกว่า 4 Mb',
+    //     showConfirmButton: true,
+    //     timer: 3000,
+    //   });
+    // }
     loadingStart();
 
-    const namefile = form.name.value + ' ' + form.xxd.value + ' ' + new Date();
+    // const namefile = form.name.value + ' ' + form.xxd.value + ' ' + new Date();
     // ชื่อไฟล์ เปิดถ้าใช้อัพไฟล์เปิดบรรทัดนี้
     // console.log(size);
     // console.log('ชื่อไฟล์ ' + namefile);
 
-    const file = form.files1.files[0];
-    const fr = new FileReader();
-    fr.readAsArrayBuffer(file);
-    fr.onload = (f) => {
+    // const file = form.files1.files[0];
+    // const fr = new FileReader();
+    // fr.readAsArrayBuffer(file);
+    // fr.onload = (f) => {
       const url =
         'https://script.google.com/macros/s/AKfycbyCs7krAUrZ_q0mcA8gDD5I9cfgGPQHfy5qrAuVWbU2M3sm7uhVTDurE5t7rTrc8hs5/exec'; // <--- Please set the URL of Web Apps.
 
       const qs = new URLSearchParams({
-        filename: namefile || file.name,
-        mimeType: file.type,
+        // filename: namefile || file.name,
+        // mimeType: file.type,
+
         xxd: form.xxd.value,
         name: form.name.value,
         class: form.class.value,
@@ -98,7 +99,7 @@ function runApp() {
 
       fetch(`${url}?${qs}`, {
         method: 'POST',
-        body: JSON.stringify([...new Int8Array(f.target.result)]), // ถ้าอัพไฟล์เปิดกลุ่มนี้
+        // body: JSON.stringify([...new Int8Array(f.target.result)]), // ถ้าอัพไฟล์เปิดกลุ่มนี้
         body: JSON.stringify([...new Int8Array()]),
       })
         .then(
@@ -169,7 +170,7 @@ function runApp() {
         form.reset();
         return console.log('OK');
       }
-    }; //เปิดถ้าใช้อัพไฟล์เปิดบรรทัดนี้ ***
+    // }; //เปิดถ้าใช้อัพไฟล์เปิดบรรทัดนี้ ***
     // form.reset();
   }
 }
@@ -221,18 +222,18 @@ function createFlexMessage(newxx, nameu) {
 
 // show image
 //อัพรูปเปิดกลุ่มนี้
-document.getElementById('files1').onchange = function () {
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    document.getElementById('image1').src = e.target.result;
-    $('#image1').show();
-    files1.dataURL = e.target.result;
-    files1.name = document.getElementById('files1').files[0].name;
-    console.log(files1);
-    document.getElementById('image1').setAttribute('width', 100); // เพิ่มให้แสดงภาพ
-  };
-  reader.readAsDataURL(this.files[0]);
-};
+// document.getElementById('files1').onchange = function () {
+//   var reader = new FileReader();
+//   reader.onload = function (e) {
+//     document.getElementById('image1').src = e.target.result;
+//     $('#image1').show();
+//     files1.dataURL = e.target.result;
+//     files1.name = document.getElementById('files1').files[0].name;
+//     console.log(files1);
+//     document.getElementById('image1').setAttribute('width', 100); // เพิ่มให้แสดงภาพ
+//   };
+//   reader.readAsDataURL(this.files[0]);
+// };
 
 document.getElementById('xxd').onchange = function () {
   myFunction();
